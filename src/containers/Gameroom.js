@@ -13,7 +13,8 @@ class Gameroom extends Component {
 
   render() {
     if (this.props.questions) {
-    console.log('true')
+    console.log(this.props.questions)
+
     const question = this.props.questions[0];
     //console.log('question: ', question)
     return (

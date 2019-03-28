@@ -1,21 +1,22 @@
+import axios from "axios";
+
 export const LOAD_QUESTIONS = "load_question";
 export const GAME_STATE = "gameData";
 
+
+
+const ROOT_URL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple";
+
+
 export function loadQuestions() {
-  const questions = {
-    "response_code": 0, 
-    "results": [
-      { "category": "Science: Computers", 
-      "type": "multiple", 
-      "difficulty": "hard", 
-      "question": "Who is the original author of the realtime physics engine called PhysX?", 
-      "correct_answer": "NovodeX", 
-      "incorrect_answers": ["Ageia", "Nvidia", "AMD"] }] };
+  const questions = axios.get(`${ROOT_URL}`);
+
   return {
     type: LOAD_QUESTIONS,
     payload: questions
   };
 }
+
 
 export function gameState() {
   let gameData = { 

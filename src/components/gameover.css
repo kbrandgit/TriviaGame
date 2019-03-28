@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body,
 html {
   height: 100%;
@@ -18,10 +18,7 @@ html {
   background-size: cover;
 }
 
-.card {
-  text-align: center;
-}
-=======
+
 body, html {
     height: 100%;
     margin: 0;
@@ -63,4 +60,4 @@ body, html {
     font-size: 20px;
   }
 
->>>>>>> master
+
