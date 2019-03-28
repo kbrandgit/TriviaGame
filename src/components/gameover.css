@@ -1,24 +1,3 @@
-
-body,
-html {
-  height: 100%;
-  margin: 0;
-}
-
-.background {
-  /* The image used */
-  background-image: url('fireworksGIF.gif');
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
 body, html {
     height: 100%;
     margin: 0;
@@ -43,8 +22,8 @@ body, html {
 }
 .gameover-col {
     text-align: center;
-    color: white;
-    padding-top: 300px;
+    color: #f9c80e;
+    padding-top: 280px;
     font-family: 'Tajawal';
     font-size: 80px;
   }
@@ -53,11 +32,9 @@ body, html {
     background-color: rgb(85, 105, 86);
     border: none;
     border-radius: 10px;
-    color: rgb(193, 223, 61);
+    color: #43bccd;
     padding: 15px 20px;
     text-align: center;
     display: inline-block;
     font-size: 20px;
   }
-
-
