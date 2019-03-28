@@ -12,10 +12,14 @@ class Gameover extends React.Component {
 
     render() {
         return (
-            <body>
-            <div className="background">
 
-                <p>some text</p>
+            // container, row, col-2
+            // bootstrap alignment horizontal, vertical
+            // p-tags
+            // button styling on:hover
+
+       
+            <div className="background">
 
                     <div class="card">
                     <div class="card-header">
@@ -29,7 +33,7 @@ class Gameover extends React.Component {
                 </div>	 
 
             </div>
-            </body>
+       
            
         )
     }
