@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { LOAD_QUESTIONS } from "../actions";
 
 
