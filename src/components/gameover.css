@@ -16,6 +16,26 @@ body, html {
     background-size: cover;
   }
 
-.card {
+.gameover-row {
+    align-items: center;
+    justify-content: center;
+}
+.gameover-col {
     text-align: center;
+    color: white;
+    padding-top: 300px;
+    font-family: 'Tajawal';
+    font-size: 80px;
   }
+
+  .btn {
+    background-color: rgb(85, 105, 86); /* Green */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+  }
+

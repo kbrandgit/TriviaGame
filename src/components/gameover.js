@@ -13,22 +13,17 @@ class Gameover extends React.Component {
     render() {
         return (
 
-            // container, row, col-2
-            // bootstrap alignment horizontal, vertical
-            // p-tags
-            // button styling on:hover
-
        
             <div className="background">
 
-                    <div class="card">
-                    <div class="card-header">
-                        You Won!
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Score: 70</h4>
-                        <p class="card-text">Congratulations, Alice!</p>
-                        <button href="#!" class="btn btn-dark">Play Again</button>
+                <div class="gameover-container">
+                    <div class="gameover-row">
+                        <div class="gameover-col">
+                            You Won!
+                            <h3 class="gameover-score">Score: 70</h3>
+                            <h2 class="gameover-text"><em>Congratulations, Alice!</em></h2> 
+                            <button href="#!" class="btn btn-dark">Play Again</button>
+                        </div>
                     </div>
                 </div>	 
 
