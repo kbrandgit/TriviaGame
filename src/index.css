@@ -13,7 +13,7 @@
   font-family: 'Tajawal';
   font-size: 180px;
   min-width: 1200px;
-  height: auto;
+  height: 270px;
   text-align: center;
   color: #252525;
 }
@@ -27,4 +27,71 @@
 
 .form-col {
   text-align: center;
+}
+
+.waiting {
+  animation: blinker 2s step-start infinite;
+}
+
+@keyframes blinker {
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  35% {
+    opacity: 0.4;
+  }
+  40% {
+    opacity: 0.3;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  55% {
+    opacity: 0.2;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  65% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
