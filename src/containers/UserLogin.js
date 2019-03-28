@@ -21,9 +21,9 @@ export class UserLogin extends Component {
           <input
             type="text"
             className="form-control-lg"
-            placeholder="Rickitikkitavi"
+            placeholder="Limit of 10 characters"
           />
-          <Link to={'/Lobby'}>
+          <Link to={'/lobby'}>
             <input
               type="submit"
               value="Ready!"
