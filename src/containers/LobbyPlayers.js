@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { gameState } from '../actions';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 class LobbyPlayers extends Component {
