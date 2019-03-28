@@ -1,5 +1,7 @@
 export const LOAD_QUESTIONS = "load_question";
 export const GAME_STATE = "gameData";
+export const INCREMENT_SCORE = "incrementScore";
+export const INCREMENT_QUESTION = "incrementQuestion";
 
 export function loadQuestions() {
   const questions = {
@@ -135,7 +137,7 @@ export function loadQuestions() {
 
 export function gameState() {
   let gameData = { 
-    currentQuestion: 7,
+    currentQuestion: 0,
     winner: null,
     players: [
       {id: 0, name: "Knox", score: 0},
@@ -152,5 +154,19 @@ export function gameState() {
   return {
     type: GAME_STATE,
     payload: gameData
+  };
+}
+
+export function updateScore(id) {
+  return {
+    type: INCREMENT_SCORE,
+    payload: id
+  };
+}
+
+export function updateRound(nextQuestion) {
+  return {
+    type: INCREMENT_QUESTION,
+    payload: nextQuestion
   };
 }
