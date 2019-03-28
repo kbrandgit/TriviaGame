@@ -12,7 +12,7 @@
 .landing-col {
   font-family: 'Tajawal';
   font-size: 180px;
-  min-width: 1200px;
+  min-width: 1000px;
   height: 270px;
   text-align: center;
   color: #252525;
@@ -29,8 +29,47 @@
   text-align: center;
 }
 
+.ready-div {
+  display: block;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.lets-go-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-lobby-bottom-row {
+  height: 40vh;
+  padding: 20px;
+  background-color: #252525;
+}
+
+.player-card {
+  height: 80px;
+  background-color: purple;
+  color: white;
+  font-size: 30px;
+  font-family: Tajawal;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 14px;
+  overflow: hidden;
+  line-height: 2;
+}
+
 .waiting {
   animation: blinker 2s step-start infinite;
+  margin-top: -50px;
+}
+
+.border-35 {
+  border-radius: 35px;
 }
 
 @keyframes blinker {

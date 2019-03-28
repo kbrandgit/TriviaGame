@@ -1,10 +1,10 @@
 import _ from "lodash";
-import { LOAD_QUESTIONS } from "../actions";
+import { GAME_STATE } from "../actions";
 
 export default function(state = '', action) {
   switch (action.type) {
-    case LOAD_QUESTIONS:
-      return action.payload.results;
+    case GAME_STATE:
+      return action.payload;
     default:
       return state;
   }
