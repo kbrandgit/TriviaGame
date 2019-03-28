@@ -28,11 +28,11 @@ body, html {
     font-size: 80px;
   }
 
-  .btn {
-    background-color: rgb(85, 105, 86); /* Green */
+#btn-playagain {
+    background-color: rgb(85, 105, 86);
     border: none;
     border-radius: 10px;
-    color: white;
+    color: rgb(193, 223, 61);
     padding: 15px 20px;
     text-align: center;
     display: inline-block;

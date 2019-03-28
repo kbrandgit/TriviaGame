@@ -1,5 +1,6 @@
 import React from 'react';
 import './gameover.css';
+import { Link } from "react-router-dom";
 
 
 // Component to notify players the game has finished
@@ -22,7 +23,8 @@ class Gameover extends React.Component {
                             You Won!
                             <h3 class="gameover-score">Score: 70</h3>
                             <h2 class="gameover-text"><em>Congratulations, Alice!</em></h2> 
-                            <button href="#!" class="btn btn-dark">Play Again</button>
+                          
+                            <Link to="/landing" id="btn-playagain" className="btn btn-dark">Play Again</Link>
                         </div>
                     </div>
                 </div>	 
