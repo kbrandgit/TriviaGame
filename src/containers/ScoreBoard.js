@@ -13,7 +13,7 @@ class ScoreBoard extends Component {
   renderPlayers() {
     return _.map(this.props.gameData.players, player => {
       return (
-        <li className="players">
+        <li className="players" key={player.id}>
         name: {player.name} score: {player.score}
         </li>
       )
@@ -22,7 +22,7 @@ class ScoreBoard extends Component {
   }
 
   render() {
-    console.log('scoreboard: ', this.props.gameData)
+    //console.log('scoreboard: ', this.props.gameData)
     return (
     <div>
       <ul className="playersGroup">
