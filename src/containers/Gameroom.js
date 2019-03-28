@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { loadQuestions, gameState } from "../actions";
+import { loadQuestions, gameState, updateScore, updateRound } from "../actions";
 import { bindActionCreators } from "redux";
 import ScoreBoard from './ScoreBoard'
 
@@ -21,8 +21,29 @@ class Gameroom extends Component {
     }
 }
 
-onClickLi(e) {
-  console.log(e.currentTarget.textContent)
+onClickListItem(e) {
+  const userAnswer = e.currentTarget.textContent;
+  const currentQuestion = this.props.gameData.currentQuestion;
+  if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
+    console.log("winner")
+    this.props.updateScore(0);
+    //trigger amazing css crap here to highlight answer green
+  } else {
+    console.log("loser")
+    //trigger amazing css crap here to highlight answer red
+  }
+  this.finishQuestionRound();
+}
+
+finishQuestionRound() {
+  const currentQuestion = this.props.gameData.currentQuestion
+  if (currentQuestion < 9)
+  {
+  this.props.updateRound(currentQuestion+1);
+  } else {
+    this.props.history.push('/gameover')
+  }
+
 }
 
 renderAnswers() {
@@ -31,13 +52,13 @@ renderAnswers() {
   this.shuffleArray(shuffledAnswers);
   return _.map(shuffledAnswers, q => {
     return (
-      <li className="answerGroup" onClick={this.onClickLi.bind(this)} key={q}>
+      <li className="answerGroup" onClick={this.onClickListItem.bind(this)} key={q}>
         {q}
       </li>
     )
   })
-
 }
+
   render() {
     const question = this.props.questions[this.props.gameData.currentQuestion];
     if (this.props.questions.length > 0) {
@@ -62,7 +83,7 @@ function mapStateToProps({questions, gameData}) {
 }
 
 function mapDispatchToProps(dispatch) { 
-  return bindActionCreators({loadQuestions, gameState}, dispatch);
+  return bindActionCreators({loadQuestions, gameState, updateScore, updateRound}, dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Gameroom);
