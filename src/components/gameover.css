@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body,
 html {
   height: 100%;
@@ -20,3 +21,46 @@ html {
 .card {
   text-align: center;
 }
+=======
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+.background { 
+    /* The image used */
+    background-image: url("fireworksGIF.gif");
+  
+    /* Full height */
+    height: 100vh; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.gameover-row {
+    align-items: center;
+    justify-content: center;
+}
+.gameover-col {
+    text-align: center;
+    color: white;
+    padding-top: 300px;
+    font-family: 'Tajawal';
+    font-size: 80px;
+  }
+
+  .btn {
+    background-color: rgb(85, 105, 86); /* Green */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+  }
+
+>>>>>>> master
