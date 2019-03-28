@@ -23,7 +23,7 @@ export class UserLogin extends Component {
             className="form-control-lg"
             placeholder="Rickitikkitavi"
           />
-          <Link to={'/Lobby'}>
+          <Link to={'/lobby'}>
             <input
               type="submit"
               value="Ready!"
