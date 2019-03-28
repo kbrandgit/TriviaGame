@@ -21,6 +21,7 @@ class Gameroom extends Component {
     }
 }
 
+
 onClickListItem(e) {
   const userAnswer = e.currentTarget.textContent;
   const currentQuestion = this.props.gameData.currentQuestion;
@@ -43,7 +44,6 @@ finishQuestionRound() {
   } else {
     this.props.history.push('/gameover')
   }
-
 }
 
 renderAnswers() {
@@ -51,9 +51,10 @@ renderAnswers() {
   const shuffledAnswers = question.incorrect_answers.concat(question.correct_answer)
   this.shuffleArray(shuffledAnswers);
   return _.map(shuffledAnswers, q => {
+
     return (
-      <li className="answerGroup" onClick={this.onClickListItem.bind(this)} key={q}>
-        {q}
+      <li className="answerGroup" onClick={this.onClickLi.bind(this)} key={q}>
+        {decodeURIComponent(q)}
       </li>
     )
   })
@@ -61,12 +62,14 @@ renderAnswers() {
 
   render() {
     const question = this.props.questions[this.props.gameData.currentQuestion];
+
     if (this.props.questions.length > 0) {
     return (
       <div>
-        Category: {question.category}
+        
+        Category: {decodeURIComponent(question.category)}
         <p />
-        Question: {question.question}
+        Question: {decodeURIComponent(question.question)}
         <p />
         <ul>{this.renderAnswers()}</ul>
         <ScoreBoard />

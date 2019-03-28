@@ -17,40 +17,29 @@ html {
   background-size: cover;
 }
 
-.card {
-  text-align: center;
-}
-
-body,
-html {
-  height: 100%;
-  margin: 0;
-}
-
-.background {
-  /* The image used */
-  background-image: url('fireworksGIF.gif');
-
-  /* Full height */
-  height: 100vh;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .gameover-row {
   align-items: center;
   justify-content: center;
 }
+
 .gameover-col {
-  text-align: center;
-  color: white;
-  padding-top: 300px;
-  font-family: 'Tajawal';
-  font-size: 80px;
-}
+    text-align: center;
+    color: #f9c80e;
+    padding-top: 280px;
+    font-family: 'Tajawal';
+    font-size: 80px;
+ }
+
+#btn-playagain {
+    background-color: rgb(85, 105, 86);
+    border: none;
+    border-radius: 10px;
+    color: #43bccd;
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+ }
 
 .btn {
   background-color: rgb(85, 105, 86); /* Green */
