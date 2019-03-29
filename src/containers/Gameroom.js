@@ -6,17 +6,40 @@ import { bindActionCreators } from 'redux';
 import ScoreBoard from './ScoreBoard';
 
 class Gameroom extends Component {
+  constructor(props) {
+  super(props) 
+    this.state = {playerCorrect: false,
+                  isShuffled: false}
+  }
   componentDidMount() {
     this.props.loadQuestions();
+    this.roundTimer();
   }
 
+
+  roundTimer() {
+    var x = 0;
+    var intervalID = window.setInterval(() => {
+      if (this.state.playerCorrect == true) {
+        this.props.updateScore(1);
+        this.setState({playerCorrect: false});
+      }
+      this.cpuTurn();
+      this.setState({isShuffled : false})
+      this.finishQuestionRound();
+       if (++x === 10) {
+           window.clearInterval(intervalID);
+       }
+    }, 10000);
+}
+
   shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
+      for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+  }
   }
 
   cpuTurn() {
@@ -28,7 +51,7 @@ class Gameroom extends Component {
     const correctIndex = answersArray.indexOf(
       this.props.questions[currentQuestion].correct_answer
     );
-    for (let i = 1; i < 10; i++) {
+    for (let i = 2; i <= 10; i++) {
       const cpuGuess = Math.floor(Math.random() * 4 + 1);
       if (cpuGuess === correctIndex + 1) {
         this.props.updateScore(i);
@@ -39,17 +62,9 @@ class Gameroom extends Component {
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
     const currentQuestion = this.props.gameData.currentQuestion;
-
     if (userAnswer === decodeURIComponent(this.props.questions[currentQuestion].correct_answer)) {
-      console.log('right');
-      this.props.updateScore(0);
-      //trigger amazing css crap here to highlight answer green
-    } else {
-      console.log('wrong');
-      //trigger amazing css crap here to highlight answer red
+      this.setState({playerCorrect: true});
     }
-    this.cpuTurn();
-    this.finishQuestionRound();
   }
   finishQuestionRound() {
     const currentQuestion = this.props.gameData.currentQuestion;
@@ -65,7 +80,8 @@ class Gameroom extends Component {
     const shuffledAnswers = question.incorrect_answers.concat(
       question.correct_answer
     );
-    this.shuffleArray(shuffledAnswers);
+    //this.shuffleArray(shuffledAnswers);
+
     return _.map(shuffledAnswers, q => {
       return (
         <div
@@ -77,11 +93,10 @@ class Gameroom extends Component {
         </div>
       );
     });
-  }
+  };
 
   render() {
     const question = this.props.questions[this.props.gameData.currentQuestion];
-
     if (this.props.questions.length > 0) {
       return (
         <div className="container-fluid">
@@ -99,7 +114,7 @@ class Gameroom extends Component {
             {this.renderAnswers()}
           </div>
         </div>
-      );
+      )
     } else {
       return <div>loading...</div>;
     }

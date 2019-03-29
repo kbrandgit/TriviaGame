@@ -12,8 +12,8 @@ export default function(state = '', action) {
       return !state ? action.payload : {...state}
     case INCREMENT_SCORE:
       return Object.assign({}, state, {
-        players: state.players.map((player, index) => {
-          if (index === action.payload) {
+        players: state.players.map((player) => {
+          if (player.id === action.payload) {
             return Object.assign({}, player, {
               id: player.id,
               name: player.name,
