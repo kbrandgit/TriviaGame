@@ -20,7 +20,6 @@ class Gameroom extends Component {
   }
 
   cpuTurn() {
-    console.log('cpu turn');
     const question = this.props.questions[this.props.gameData.currentQuestion];
     const answersArray = question.incorrect_answers.concat(
       question.correct_answer
@@ -31,7 +30,6 @@ class Gameroom extends Component {
     );
     for (let i = 1; i < 10; i++) {
       const cpuGuess = Math.floor(Math.random() * 4 + 1);
-      console.log(correctIndex, cpuGuess);
       if (cpuGuess === correctIndex + 1) {
         this.props.updateScore(i);
       }
@@ -42,12 +40,12 @@ class Gameroom extends Component {
     const userAnswer = e.currentTarget.textContent;
     const currentQuestion = this.props.gameData.currentQuestion;
 
-    if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
-      console.log('winner');
+    if (userAnswer === decodeURIComponent(this.props.questions[currentQuestion].correct_answer)) {
+      console.log('right');
       this.props.updateScore(0);
       //trigger amazing css crap here to highlight answer green
     } else {
-      console.log('loser');
+      console.log('wrong');
       //trigger amazing css crap here to highlight answer red
     }
     this.cpuTurn();
