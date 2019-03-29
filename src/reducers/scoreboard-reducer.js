@@ -9,7 +9,7 @@ import {
 export default function(state = '', action) {
   switch (action.type) {
     case GAME_STATE:
-      return action.payload;
+      return !state ? action.payload : {...state}
     case INCREMENT_SCORE:
       return Object.assign({}, state, {
         players: state.players.map((player, index) => {

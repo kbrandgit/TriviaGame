@@ -8,7 +8,6 @@ import ScoreBoard from './ScoreBoard';
 class Gameroom extends Component {
   componentDidMount() {
     this.props.loadQuestions();
-    this.props.gameState();
   }
 
   shuffleArray(array) {
@@ -18,7 +17,39 @@ class Gameroom extends Component {
       array[i] = array[j];
       array[j] = temp;
     }
+<<<<<<< HEAD
+=======
+}
+
+cpuTurn() {
+  const question = this.props.questions[this.props.gameData.currentQuestion]
+  const answersArray = question.incorrect_answers.concat(question.correct_answer)
+  const currentQuestion = this.props.gameData.currentQuestion;
+  const correctIndex = answersArray.indexOf(this.props.questions[currentQuestion].correct_answer)
+  for(let i=1;i<10;i++) {
+    const cpuGuess = Math.floor(Math.random() * (4)+1);
+    if (cpuGuess === correctIndex+1) {
+      this.props.updateScore(i);
+  } 
+}
+}
+
+onClickListItem(e) {
+  const userAnswer = e.currentTarget.textContent;
+  const currentQuestion = this.props.gameData.currentQuestion;
+
+  if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
+    console.log("winner")
+    this.props.updateScore(0);
+    //trigger amazing css crap here to highlight answer green
+  } else {
+    console.log("loser")
+    //trigger amazing css crap here to highlight answer red
+>>>>>>> master
   }
+  this.cpuTurn();
+  this.finishQuestionRound();
+}
 
   // onClickListItem(e) {
   //   const userAnswer = e.currentTarget.textContent;
