@@ -4,7 +4,6 @@ import { gameState } from '../actions';
 import { bindActionCreators } from 'redux';
 
 class LobbyPlayers extends Component {
-
   renderBadges = () => {
     return this.props.gameData.players.map(index => {
       return (

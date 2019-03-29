@@ -18,19 +18,20 @@ class Gameroom extends Component {
       array[i] = array[j];
       array[j] = temp;
     }
-}
-
-onClickListItem(e) {
-  const userAnswer = e.currentTarget.textContent;
-  const currentQuestion = this.props.gameData.currentQuestion;
-  if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
-    console.log("winner")
-    this.props.updateScore(0);
-    //trigger amazing css crap here to highlight answer green
-  } else {
-    console.log("loser")
-    //trigger amazing css crap here to highlight answer red
   }
+
+  // onClickListItem(e) {
+  //   const userAnswer = e.currentTarget.textContent;
+  //   const currentQuestion = this.props.gameData.currentQuestion;
+  //   if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
+  //     console.log('winner');
+  //     this.props.updateScore(0);
+  //     //trigger amazing css crap here to highlight answer green
+  //   } else {
+  //     console.log('loser');
+  //     //trigger amazing css crap here to highlight answer red
+  //   }
+  // }
 
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
@@ -78,10 +79,6 @@ onClickListItem(e) {
     const question = this.props.questions[this.props.gameData.currentQuestion];
 
     if (this.props.questions.length > 0) {
-      // setTimeout(function() {
-      //   document.getElementsByClassName('category').classList.add('hide');
-      //   console.log(document.getElementsByClassName('category'));
-      // }, 2000);
       return (
         <div className="container-fluid">
           <div className="row" style={{ height: '60vh' }}>
