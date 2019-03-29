@@ -17,7 +17,7 @@ export function loadQuestions() {
 }
 
 export function gameState() {
-  let gameData = { 
+  let gameData = {
     currentQuestion: 0,
     winner: null,
     players: []
