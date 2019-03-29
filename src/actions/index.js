@@ -1,12 +1,13 @@
-import axios from "axios";
-export const ADD_CPU = "add_cpu";
-export const LOAD_QUESTIONS = "load_question";
-export const GAME_STATE = "gameData";
-export const INCREMENT_SCORE = "incrementScore";
-export const INCREMENT_QUESTION = "incrementQuestion";
-export const ADD_PLAYER = "playerName";
+import axios from 'axios';
+export const ADD_CPU = 'add_cpu';
+export const LOAD_QUESTIONS = 'load_question';
+export const GAME_STATE = 'gameData';
+export const INCREMENT_SCORE = 'incrementScore';
+export const INCREMENT_QUESTION = 'incrementQuestion';
+export const ADD_PLAYER = 'playerName';
 
-const ROOT_URL = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple&encode=url3986";
+const ROOT_URL =
+  'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple&encode=url3986';
 
 export function loadQuestions() {
   const questions = axios.get(`${ROOT_URL}`);
@@ -20,7 +21,19 @@ export function gameState() {
   let gameData = {
     currentQuestion: 0,
     winner: null,
-    players: []
+    players: [],
+    colors: [
+      '#c63bbb',
+      '#3c60c4',
+      '#43a855',
+      '#756540',
+      '#3d3d3d',
+      '#F9C80E',
+      '#F86624',
+      '#F04E37',
+      '#662E9B',
+      '#43BCCD'
+    ]
   };
   return {
     type: GAME_STATE,
@@ -42,7 +55,6 @@ export function updateRound(nextQuestion) {
   };
 }
 
-
 export function addPlayer(playerName) {
   return {
     type: ADD_PLAYER,
@@ -52,6 +64,6 @@ export function addPlayer(playerName) {
 export function addCPU() {
   return {
     type: ADD_CPU,
-    payload: "cpu"
-  }
+    payload: 'cpu'
+  };
 }

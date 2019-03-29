@@ -20,7 +20,6 @@ class Gameroom extends Component {
 }
 
 cpuTurn() {
-  console.log("cpu turn")
   const question = this.props.questions[this.props.gameData.currentQuestion]
   const answersArray = question.incorrect_answers.concat(question.correct_answer)
   const currentQuestion = this.props.gameData.currentQuestion;
