@@ -10,13 +10,17 @@ class ScoreBoard extends Component {
   }
 
   renderPlayers() {
+    this.props.gameData.players.sort((a, b) => b.score - a.score);
     return _.map(this.props.gameData.players, player => {
       return (
         <div
           className="playersGroup row players-row justify-content-center"
           key={player.id}
         >
-          <div className="players col scoreboard-card card flexbox">
+          <div
+            className="players col scoreboard-card card flexbox"
+            style={{ backgroundColor: player.color }}
+          >
             <p>
               {player.name}{' '}
               <span style={{ float: 'right' }}>{player.score}</span>
@@ -28,7 +32,6 @@ class ScoreBoard extends Component {
   }
 
   render() {
-    //console.log('scoreboard: ', this.props.gameData)
     return (
       <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
         {this.renderPlayers()}
