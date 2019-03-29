@@ -108,7 +108,9 @@ class Gameroom extends Component {
               <div id="category">{decodeURIComponent(question.category)}</div>
               <div id="triangle" />
             </div>
-            <ScoreBoard />
+            <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
+              <ScoreBoard />
+            </div>
           </div>
           <div className="row justify-content-around align-items-center answers-row">
             {this.renderAnswers()}
