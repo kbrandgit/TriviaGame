@@ -4,9 +4,6 @@ import { gameState } from '../actions';
 import { bindActionCreators } from 'redux';
 
 class LobbyPlayers extends Component {
-  componentDidMount() {
-    this.props.gameState();
-  }
 
   renderBadges = () => {
     return this.props.gameData.players.map(index => {
@@ -22,7 +19,6 @@ class LobbyPlayers extends Component {
   };
 
   render() {
-    console.log(this.props.gameData.players); //executes twice. Once on the initial render, and then once when componentDidMount changes the
     if (this.props.gameData != '') {
       return (
         <div className="row landing-lobby-bottom-row justify-content-around align-items-center">

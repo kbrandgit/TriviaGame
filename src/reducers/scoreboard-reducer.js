@@ -1,4 +1,4 @@
-import { GAME_STATE, INCREMENT_SCORE, INCREMENT_QUESTION } from "../actions";
+import { GAME_STATE, INCREMENT_SCORE, INCREMENT_QUESTION, ADD_CPU } from "../actions";
 
 export default function(state = '', action) {
   switch (action.type) {
@@ -20,6 +20,15 @@ export default function(state = '', action) {
      case INCREMENT_QUESTION:
         return {...state, currentQuestion: action.payload
           }
+    case ADD_CPU:
+      return {
+        ...state,
+        players: [...state.players, 
+          {id: state.players.length+1,
+          name: "CPU "+ state.players.length,
+          score:0}]
+      }
+       
     default:
       return state;
   }
