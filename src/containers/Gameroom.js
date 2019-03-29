@@ -39,7 +39,6 @@ class Gameroom extends Component {
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
     const currentQuestion = this.props.gameData.currentQuestion;
-
     if (
       userAnswer ===
       decodeURIComponent(this.props.questions[currentQuestion].correct_answer)
@@ -70,6 +69,7 @@ class Gameroom extends Component {
     const shuffledAnswers = question.incorrect_answers.concat(
       question.correct_answer
     );
+
     this.shuffleArray(shuffledAnswers);
     return _.map(shuffledAnswers, q => {
       return (
@@ -96,6 +96,10 @@ class Gameroom extends Component {
                 {decodeURIComponent(question.question)}
               </h2>
               <div id="category">{decodeURIComponent(question.category)}</div>
+              <div className="question-number">
+                Question {this.props.gameData.currentQuestion + 1} of{' '}
+                {this.props.questions.length}
+              </div>
               <div id="triangle" />
             </div>
             <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
@@ -108,7 +112,7 @@ class Gameroom extends Component {
         </div>
       );
     } else {
-      return <div>loading...</div>;
+      return <div />;
     }
   }
 }

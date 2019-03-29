@@ -25,14 +25,14 @@ export function gameState() {
     colors: [
       '#c63bbb',
       '#3c60c4',
-      '#43a855',
+      '#3d3d3d',
       '#756540',
       '#43BCCD',
       '#F9C80E',
       '#F86624',
       '#F04E37',
       '#662E9B',
-      '#3d3d3d'
+      '#43a855'
     ]
   };
   return {

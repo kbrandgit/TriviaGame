@@ -24,13 +24,13 @@ class LobbyLanding extends Component {
         <div className="landing-top-row row align-items-center">
           <input
             type="submit"
-            value="Start!"
+            value="Go!"
             className="btn-lg btn-primary px-5 lets-go-button"
             onClick={this.onClickStartGame.bind(this)}
           />
           <div className="col landing-col">
             <p>PSc5 Trivia</p>
-            <h4 className="waiting">waiting for the game the start</h4>
+            <h4 className="waiting">press Go! to start the game</h4>
           </div>
         </div>
         <LobbyPlayers />
