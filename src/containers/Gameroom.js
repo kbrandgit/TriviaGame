@@ -17,6 +17,8 @@ class Gameroom extends Component {
       array[i] = array[j];
       array[j] = temp;
     }
+<<<<<<< HEAD
+=======
 }
 
 cpuTurn() {
@@ -43,10 +45,24 @@ onClickListItem(e) {
   } else {
     console.log("loser")
     //trigger amazing css crap here to highlight answer red
+>>>>>>> master
   }
   this.cpuTurn();
   this.finishQuestionRound();
 }
+
+  // onClickListItem(e) {
+  //   const userAnswer = e.currentTarget.textContent;
+  //   const currentQuestion = this.props.gameData.currentQuestion;
+  //   if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
+  //     console.log('winner');
+  //     this.props.updateScore(0);
+  //     //trigger amazing css crap here to highlight answer green
+  //   } else {
+  //     console.log('loser');
+  //     //trigger amazing css crap here to highlight answer red
+  //   }
+  // }
 
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
