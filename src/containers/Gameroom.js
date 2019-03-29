@@ -21,7 +21,6 @@ class Gameroom extends Component {
     }
 }
 
-
 onClickListItem(e) {
   const userAnswer = e.currentTarget.textContent;
   const currentQuestion = this.props.gameData.currentQuestion;
