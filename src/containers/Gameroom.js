@@ -45,11 +45,11 @@ onClickListItem(e) {
   } else {
     console.log("loser")
     //trigger amazing css crap here to highlight answer red
+
   }
   this.cpuTurn();
   this.finishQuestionRound();
 }
-
   finishQuestionRound() {
     const currentQuestion = this.props.gameData.currentQuestion;
     if (currentQuestion < 9) {
