@@ -16,7 +16,7 @@ class ScoreBoard extends Component {
           className="playersGroup row players-row justify-content-center"
           key={player.id}
         >
-          <div className="players col scoreboard-card card">
+          <div className="players col scoreboard-card card flexbox">
             <p>
               {player.name}{' '}
               <span style={{ float: 'right' }}>{player.score}</span>
