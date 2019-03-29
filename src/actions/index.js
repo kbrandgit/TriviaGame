@@ -61,7 +61,6 @@ export function addPlayer(playerName) {
     payload: playerName
   };
 }
-
 export function addCPU() {
   return {
     type: ADD_CPU,

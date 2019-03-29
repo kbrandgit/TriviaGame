@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,6 +32,7 @@ ReactDOM.render(
           <Route path="/gameroom" component={Gameroom} />
           <Route path="/gameover" component={Gameover} />
           <Route path="/lobby" component={LobbyLanding} />
+          <Redirect to="/landing" />
         </Switch>
       </div>
     </BrowserRouter>
