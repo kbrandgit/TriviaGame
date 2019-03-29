@@ -8,7 +8,6 @@ import ScoreBoard from './ScoreBoard';
 class Gameroom extends Component {
   componentDidMount() {
     this.props.loadQuestions();
-    this.props.gameState();
   }
 
   shuffleArray(array) {
@@ -20,9 +19,23 @@ class Gameroom extends Component {
     }
 }
 
+cpuTurn() {
+  const question = this.props.questions[this.props.gameData.currentQuestion]
+  const answersArray = question.incorrect_answers.concat(question.correct_answer)
+  const currentQuestion = this.props.gameData.currentQuestion;
+  const correctIndex = answersArray.indexOf(this.props.questions[currentQuestion].correct_answer)
+  for(let i=1;i<10;i++) {
+    const cpuGuess = Math.floor(Math.random() * (4)+1);
+    if (cpuGuess === correctIndex+1) {
+      this.props.updateScore(i);
+  } 
+}
+}
+
 onClickListItem(e) {
   const userAnswer = e.currentTarget.textContent;
   const currentQuestion = this.props.gameData.currentQuestion;
+
   if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
     console.log("winner")
     this.props.updateScore(0);
@@ -31,6 +44,9 @@ onClickListItem(e) {
     console.log("loser")
     //trigger amazing css crap here to highlight answer red
   }
+  this.cpuTurn();
+  this.finishQuestionRound();
+}
 
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
@@ -78,10 +94,6 @@ onClickListItem(e) {
     const question = this.props.questions[this.props.gameData.currentQuestion];
 
     if (this.props.questions.length > 0) {
-      // setTimeout(function() {
-      //   document.getElementsByClassName('category').classList.add('hide');
-      //   console.log(document.getElementsByClassName('category'));
-      // }, 2000);
       return (
         <div className="container-fluid">
           <div className="row" style={{ height: '60vh' }}>
