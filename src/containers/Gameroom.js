@@ -62,8 +62,23 @@ class Gameroom extends Component {
   onClickListItem(e) {
     const userAnswer = e.currentTarget.textContent;
     const currentQuestion = this.props.gameData.currentQuestion;
+<<<<<<< HEAD
+    if (
+      userAnswer ===
+      decodeURIComponent(this.props.questions[currentQuestion].correct_answer)
+    ) {
+      // e.currentTarget.classList += ' hello-there';
+      console.log('right: ', e.currentTarget);
+      this.props.updateScore(0); //<---makes the answers shuffle on correct answer
+      //trigger amazing css crap here to highlight answer green
+    } else {
+      // e.currentTarget.classList += ' goodbye-there';
+      console.log('wrong: ', e.currentTarget);
+      //trigger amazing css crap here to highlight answer red
+=======
     if (userAnswer === decodeURIComponent(this.props.questions[currentQuestion].correct_answer)) {
       this.setState({playerCorrect: true});
+>>>>>>> master
     }
   }
   finishQuestionRound() {
@@ -80,8 +95,13 @@ class Gameroom extends Component {
     const shuffledAnswers = question.incorrect_answers.concat(
       question.correct_answer
     );
+<<<<<<< HEAD
+
+    this.shuffleArray(shuffledAnswers);
+=======
     //this.shuffleArray(shuffledAnswers);
 
+>>>>>>> master
     return _.map(shuffledAnswers, q => {
       return (
         <div
@@ -106,6 +126,10 @@ class Gameroom extends Component {
                 {decodeURIComponent(question.question)}
               </h2>
               <div id="category">{decodeURIComponent(question.category)}</div>
+              <div className="question-number">
+                Question {this.props.gameData.currentQuestion + 1} of{' '}
+                {this.props.questions.length}
+              </div>
               <div id="triangle" />
             </div>
             <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
@@ -118,7 +142,7 @@ class Gameroom extends Component {
         </div>
       )
     } else {
-      return <div>loading...</div>;
+      return <div />;
     }
   }
 }

@@ -28,7 +28,14 @@ class Gameover extends React.Component {
               </h2>
               <h3 className="gameover-score">Score: {winner.score}</h3>
 
-              <Link to="/landing" id="btn-playagain" className="btn">
+              <Link
+                to="/landing"
+                id="btn-playagain"
+                className="btn"
+                onClick={() => {
+                  window.location.reload();
+                }}
+              >
                 Play Again
               </Link>
             </div>
