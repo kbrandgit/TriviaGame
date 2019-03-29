@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import gameState from '../index.js'
+import { gameState, addPlayer } from '../actions';
 
 export class UserLogin extends Component {
+  componentDidMount() {
+    this.props.gameState();
+  }
+  
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
+    this.state = { name: '' };
 
     this.onInputChange = this.onInputChange.bind(this);
-    //this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+ 
   // Updates state with human player name
   onInputChange(event) {
-    this.setState({ term: event.target.value });
-    console.log(this.state.term)
-    //this.setState({ term: event.target.value });
+    this.setState({ name: event.target.value }, () => {
+      console.log("New state in ASYNC callback:", this.state.name);
+    }); 
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    this.props.addPlayer(this.state.name)
   }
 
   render() {
@@ -35,15 +47,17 @@ export class UserLogin extends Component {
               Enter a username and ready up!
             </label>
           </div>
+          
           <input
             onChange={this.onInputChange}
-            value={this.state.term}
+            value={this.state.name}
             type="text"
             className="form-control-lg"
             placeholder="Limit of 10 characters"
           />
           <Link to={'/lobby'}>
             <input
+              onClick={this.onFormSubmit}
               type="submit"
               value="Ready!"
               className="btn-lg btn-primary px-5"
@@ -56,4 +70,18 @@ export class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+function mapStateToProps({ gameData }) {
+  return { gameData };
+}
+
+function mapDispatchToProps(dispatch) {
+  //allows our functions to be dispatched to the middleware then reducers when the functions are invokes
+  return bindActionCreators({ gameState, addPlayer }, dispatch); //({action creators}, dispatch)
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserLogin);
+
+//export default UserLogin;
