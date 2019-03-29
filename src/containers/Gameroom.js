@@ -21,7 +21,6 @@ class Gameroom extends Component {
     }
 }
 
-
 onClickListItem(e) {
   const userAnswer = e.currentTarget.textContent;
   const currentQuestion = this.props.gameData.currentQuestion;
@@ -53,7 +52,7 @@ renderAnswers() {
   return _.map(shuffledAnswers, q => {
 
     return (
-      <li className="answerGroup" onClick={this.onClickLi.bind(this)} key={q}>
+      <li className="answerGroup" onClick={this.onClickListItem.bind(this)} key={q}>
         {decodeURIComponent(q)}
       </li>
     )
