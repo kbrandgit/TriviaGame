@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import _ from "lodash";
-import { connect } from "react-redux";
-import { gameState } from "../actions";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import { gameState } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class ScoreBoard extends Component {
-  
   componentDidMount() {
     this.props.gameState();
   }
@@ -13,32 +12,41 @@ class ScoreBoard extends Component {
   renderPlayers() {
     return _.map(this.props.gameData.players, player => {
       return (
-        <li className="players" key={player.id}>
-        name: {player.name} score: {player.score}
-        </li>
-      )
-    })
-
+        <div
+          className="playersGroup row players-row justify-content-center"
+          key={player.id}
+        >
+          <div className="players col scoreboard-card card flexbox">
+            <p>
+              {player.name}{' '}
+              <span style={{ float: 'right' }}>{player.score}</span>
+            </p>
+          </div>
+        </div>
+      );
+    });
   }
 
   render() {
     //console.log('scoreboard: ', this.props.gameData)
     return (
-    <div>
-      <ul className="playersGroup">
-          {this.renderPlayers()}
-        </ul>
-    </div>
-    )
+      <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
+        {this.renderPlayers()}
+      </div>
+    );
   }
 }
 
-function mapStateToProps({gameData}) {
-  return {gameData}; 
+function mapStateToProps({ gameData }) {
+  return { gameData };
 }
 
-function mapDispatchToProps(dispatch) { //allows our functions to be dispatched to the middleware then reducers when the functions are invokes
-  return bindActionCreators({gameState}, dispatch); //({action creators}, dispatch)
+function mapDispatchToProps(dispatch) {
+  //allows our functions to be dispatched to the middleware then reducers when the functions are invokes
+  return bindActionCreators({ gameState }, dispatch); //({action creators}, dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ScoreBoard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ScoreBoard);
