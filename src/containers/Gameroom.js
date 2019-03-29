@@ -40,15 +40,20 @@ class Gameroom extends Component {
     const userAnswer = e.currentTarget.textContent;
     const currentQuestion = this.props.gameData.currentQuestion;
 
-    if (userAnswer === decodeURIComponent(this.props.questions[currentQuestion].correct_answer)) {
-      console.log('right');
-      this.props.updateScore(0);
+    if (
+      userAnswer ===
+      decodeURIComponent(this.props.questions[currentQuestion].correct_answer)
+    ) {
+      // e.currentTarget.classList += ' hello-there';
+      console.log('right: ', e.currentTarget);
+      this.props.updateScore(0); //<---makes the answers shuffle on correct answer
       //trigger amazing css crap here to highlight answer green
     } else {
-      console.log('wrong');
+      // e.currentTarget.classList += ' goodbye-there';
+      console.log('wrong: ', e.currentTarget);
       //trigger amazing css crap here to highlight answer red
     }
-    this.cpuTurn();
+    this.cpuTurn(); //<----shuffles answers on any answer click
     this.finishQuestionRound();
   }
   finishQuestionRound() {
@@ -93,7 +98,9 @@ class Gameroom extends Component {
               <div id="category">{decodeURIComponent(question.category)}</div>
               <div id="triangle" />
             </div>
-            <ScoreBoard />
+            <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
+              <ScoreBoard />
+            </div>
           </div>
           <div className="row justify-content-around align-items-center answers-row">
             {this.renderAnswers()}

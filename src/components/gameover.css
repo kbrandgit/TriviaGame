@@ -1,9 +1,3 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-}
-
 .background {
   /* The image used */
   background-image: url('fireworksGIF.gif');
@@ -20,26 +14,27 @@ html {
 .gameover-row {
   align-items: center;
   justify-content: center;
+  margin: 0px 100px 0px 100px;
 }
 
 .gameover-col {
-    text-align: center;
-    color: #f9c80e;
-    padding-top: 280px;
-    font-family: 'Tajawal';
-    font-size: 80px;
- }
+  text-align: center;
+  color: #f9c80e;
+  /* padding-top: 280px; */
+  font-family: 'Tajawal';
+  font-size: 80px;
+}
 
 #btn-playagain {
-    background-color: rgb(85, 105, 86);
-    border: none;
-    border-radius: 10px;
-    color: #43bccd;
-    padding: 15px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
- }
+  background-color: rgb(85, 105, 86);
+  border: none;
+  border-radius: 10px;
+  color: #43bccd;
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
 
 .btn {
   background-color: rgb(85, 105, 86); /* Green */
@@ -50,4 +45,13 @@ html {
   text-align: center;
   display: inline-block;
   font-size: 20px;
+}
+
+.gameover-scoreboard-wrapper {
+  width: 250px;
+  height: 500px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(78, 78, 78);
+  border-radius: 5px;
 }
