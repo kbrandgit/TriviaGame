@@ -20,12 +20,14 @@ class Gameroom extends Component {
 }
 
 cpuTurn() {
+  console.log("cpu turn")
   const question = this.props.questions[this.props.gameData.currentQuestion]
   const answersArray = question.incorrect_answers.concat(question.correct_answer)
   const currentQuestion = this.props.gameData.currentQuestion;
   const correctIndex = answersArray.indexOf(this.props.questions[currentQuestion].correct_answer)
   for(let i=1;i<10;i++) {
     const cpuGuess = Math.floor(Math.random() * (4)+1);
+    console.log(correctIndex, cpuGuess)
     if (cpuGuess === correctIndex+1) {
       this.props.updateScore(i);
   } 
@@ -47,20 +49,6 @@ onClickListItem(e) {
   this.cpuTurn();
   this.finishQuestionRound();
 }
-
-  onClickListItem(e) {
-    const userAnswer = e.currentTarget.textContent;
-    const currentQuestion = this.props.gameData.currentQuestion;
-    if (userAnswer === this.props.questions[currentQuestion].correct_answer) {
-      console.log('winner');
-      this.props.updateScore(0);
-      //trigger amazing css crap here to highlight answer green
-    } else {
-      console.log('loser');
-      //trigger amazing css crap here to highlight answer red
-    }
-    this.finishQuestionRound();
-  }
 
   finishQuestionRound() {
     const currentQuestion = this.props.gameData.currentQuestion;

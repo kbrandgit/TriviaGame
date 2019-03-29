@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { gameState, addPlayer } from '../actions';
 
 export class UserLogin extends Component {
@@ -22,13 +22,13 @@ export class UserLogin extends Component {
   // Updates state with human player name
   onInputChange(event) {
     this.setState({ name: event.target.value }, () => {
-      console.log("New state in ASYNC callback:", this.state.name);
     }); 
   }
 
   onFormSubmit(event) {
     event.preventDefault();
     this.props.addPlayer(this.state.name)
+    this.props.history.push('/lobby')
   }
 
   render() {
@@ -79,9 +79,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ gameState, addPlayer }, dispatch); //({action creators}, dispatch)
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserLogin);
+)(UserLogin));
 
 //export default UserLogin;

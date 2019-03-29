@@ -21,7 +21,7 @@ class Gameover extends React.Component {
               <h2 className="gameover-text"><em>{winner.name} won!</em></h2>
                             <h3 className="gameover-score">Score: {winner.score}</h3>
 
-              <Link to="/landing" id="btn-playagain" className="btn">Play Again</Link>
+              <Link to="/landing" id="btn-playagain" className="btn" >Play Again</Link>
             </div>
           </div>
         </div>
