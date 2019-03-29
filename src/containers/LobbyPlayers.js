@@ -9,7 +9,7 @@ class LobbyPlayers extends Component {
       return (
         <div
           key={index.id}
-          className="col-2 card player-card ml-3 border-35"
+          className="col-2 card player-card border-35"
           style={{ backgroundColor: index.color }}
         >
           {index.name}
