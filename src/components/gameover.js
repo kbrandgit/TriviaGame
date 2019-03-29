@@ -1,7 +1,9 @@
 import React from 'react';
 import './gameover.css';
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { gameState } from "../actions";
+import { bindActionCreators } from "redux";
 
 // Component to notify players the game has finished
 // Displays the winner's name and final score
@@ -9,32 +11,27 @@ import { Link } from "react-router-dom";
 
 class Gameover extends React.Component {
 
- 
+  render() {
+    let winner = this.props.gameData.players.reduce((max, player) => player.score > max.score ? player : max)
+    return (
+      <div className="background">
+        <div className="gameover-container">
+          <div className="gameover-row">
+            <div className="gameover-col">
+              <h2 className="gameover-text"><em>{winner.name} won!</em></h2>
+                            <h3 className="gameover-score">Score: {winner.score}</h3>
 
-    render() {
-        return (
-
-       
-            <div className="background">
-
-                <div className="gameover-container">
-                    <div className="gameover-row">
-                        <div className="gameover-col">
-                            You Won!
-                            <h3 className="gameover-score">Score: 70</h3>
-                            <h2 className="gameover-text"><em>Congratulations, Alice!</em></h2> 
-                          
-                            <Link to="/landing" id="btn-playagain" className="btn">Play Again</Link>
-                        </div>
-                    </div>
-                </div>	 
-
+              <Link to="/landing" id="btn-playagain" className="btn">Play Again</Link>
             </div>
-       
-           
-        )
-    }
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
+function mapStateToProps({gameData}) {
+  return {gameData}; 
+}
 
-export default Gameover;
+export default connect(mapStateToProps,null)(Gameover);
