@@ -27,12 +27,12 @@ export function gameState() {
       '#3c60c4',
       '#43a855',
       '#756540',
-      '#3d3d3d',
+      '#43BCCD',
       '#F9C80E',
       '#F86624',
       '#F04E37',
       '#662E9B',
-      '#43BCCD'
+      '#3d3d3d'
     ]
   };
   return {

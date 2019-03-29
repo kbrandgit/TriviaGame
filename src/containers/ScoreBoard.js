@@ -9,8 +9,15 @@ class ScoreBoard extends Component {
     this.props.gameState();
   }
 
+  highlightUser = () => {
+    if (document.getElementById(1) !== null) {
+      document.getElementById(1).classList += ' highlight';
+    }
+  };
+
   renderPlayers() {
     this.props.gameData.players.sort((a, b) => b.score - a.score);
+
     return _.map(this.props.gameData.players, player => {
       return (
         <div
@@ -19,8 +26,10 @@ class ScoreBoard extends Component {
         >
           <div
             className="players col scoreboard-card card flexbox"
+            id={player.id}
             style={{ backgroundColor: player.color }}
           >
+            {this.highlightUser()}
             <p>
               {player.name}{' '}
               <span style={{ float: 'right' }}>{player.score}</span>
@@ -32,11 +41,7 @@ class ScoreBoard extends Component {
   }
 
   render() {
-    return (
-      <div className="col-3 scoreboard-col" style={{ height: '60vh' }}>
-        {this.renderPlayers()}
-      </div>
-    );
+    return <div>{this.renderPlayers()}</div>;
   }
 }
 
