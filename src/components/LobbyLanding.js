@@ -13,7 +13,10 @@ class LobbyLanding extends Component {
 
   onClickStartGame(e) {
     e.preventDefault()
-    this.props.addCPU();
+    for(let i=0;i<9;i++) {    
+      this.props.addCPU();
+    }
+    this.props.history.push('/gameroom')
   }
 
   render() {
